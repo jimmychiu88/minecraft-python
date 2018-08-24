@@ -1,32 +1,25 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Aug 23 10:34:30 2018
+Created on Fri Aug 24 10:14:18 2018
 
 @author: NTPU
 """
-import random
+from random import choice
 from mcpi.minecraft import Minecraft
 w=Minecraft.create()
+"""
+block=[14,15,16,56,73,129]
+r=choice(block)
+"""
+list2=[[]],
+        [56,17,46]]
 
-x,y,z=w.player.getTilePos()
-for i in range(20):
-    r=random.randrange(1,5)
-    if r==1:
-        w.setBlocks(x,y,z,x+4,y,z,1)
-        x=x+4
-    if r==2:
-        w.setBlocks(x,y,z,x-4,y,z,1)
-        x=x-4
-    if r==3:
-        w.setBlocks(x,y,z,x,y,z+4,1)
-        x=x+4
-    if r==4:
-        w.setBlocks(x,y,z,x,y,z-4,1)
-        x=x-4
-    if r==5:
-        w.setBlocks(x,y,z,x,y+1,z,1)
-        x=x-4
-    if r==6:
-        w.setBlocks(x,y,z,x,y-1,z,1)
-        x=x-4
-                  
+myID=w.getPlayerEntityId("jimmychiu830")
+x,y,z=w.entity.getTilePos(myID)
+StartX=x
+for list1 in list2:
+    for i in list1:
+        w.setBlock(x,y,z,i)
+        x=x+1
+    x=StartX
+    z=z+1
